@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Untuk Fazida Saila Riqina ❤️</title>
+  <meta name="description"
+    content="Sebuah website spesial yang dibuat dengan penuh perasaan untuk Fazida Saila Riqina." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Canvas Confetti Library (for smooth celebratory effect) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Ambient Romantic Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Ambient Audio Player Toggle (Top Right) -->
+  <div class="audio-control" id="audioToggle" title="Nyalakan / Matikan Musik Romantis">
+    <div class="audio-icon-wrap">
+      <span class="music-wave wave-1"></span>
+      <span class="music-wave wave-2"></span>
+      <span class="music-wave wave-3"></span>
+      <span class="music-note">🎵</span>
+    </div>
+    <span class="audio-label" id="audioLabel">Putar Musik</span>
+  </div>
+
+  <!-- Feedback Overlay (for "Yahh..." or Celebratory Messages) -->
+  <div id="feedbackOverlay" class="feedback-overlay hidden">
+    <div class="feedback-content" id="feedbackContent">
+      <div class="feedback-emoji" id="feedbackEmoji">🥺</div>
+      <h2 class="feedback-title" id="feedbackTitle">Yahh... 🥺</h2>
+      <p class="feedback-desc" id="feedbackDesc">Nggak apa-apa kok, terima kasih ya...</p>
+    </div>
+  </div>
+
+  <!-- Main Slides Wrapper -->
+  <main class="app-container">
+    <div class="slides-track" id="slidesTrack">
+
+      <!-- ==================== SLIDE 1: PERTANYAAN ==================== -->
+      <section class="slide-section active" id="slide-1" data-slide="1">
+        <div class="slide-content-card glass-panel">
+
+          <div class="romantic-tag">
+            <span class="sparkle">✨</span>
+            <span class="name-highlight">Fazida Saila Riqina ❤️</span>
+            <span class="sparkle">✨</span>
+          </div>
+
+          <h1 class="main-question">
+            Fazida, kamu mau nggak jadi pacar aku?
+          </h1>
+
+          <div class="heart-divider">
+            <span class="line"></span>
+            <span class="heart-icon">💖</span>
+            <span class="line"></span>
+          </div>
+
+          <p class="sub-description">
+            Aku nggak tahu harus ngomong bagaimana,<br />
+            jadi mungkin biar website ini yang menyampaikannya. ❤️
+          </p>
+
+          <div class="button-group" id="questionButtons">
+            <button class="btn btn-primary btn-mau" id="btnMau" aria-label="Mau jadi pacar">
+              <span class="btn-text">MAU ❤️</span>
+              <span class="btn-glow"></span>
+            </button>
+            <button class="btn btn-secondary btn-nggak" id="btnNggak" aria-label="Nggak mau">
+              <span class="btn-text">NGGAK 🥺</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 2: KENANGAN ==================== -->
+      <section class="slide-section" id="slide-2" data-slide="2">
+        <div class="slide-content-card glass-panel gallery-card">
+
+          <div class="slide-header">
+            <span class="script-subtitle">Kenangan Indah</span>
+            <h2 class="section-title">Kalau kamu mau... ❤️</h2>
+            <p class="section-subtitle">Ini beberapa momen yang ingin aku simpan.</p>
+          </div>
+
+          <!-- Gallery Layout (3 Photos) -->
+          <div class="photo-gallery">
+
+            <!-- Foto 1 -->
+            <div class="photo-item" id="photoItem1">
+              <div class="photo-frame">
+                <img src="images/foto1.png" alt="Momen Indah 1" class="memory-photo" loading="lazy"
+                  onerror="handleImageFallback(this, 'file_00000000079c81fa8fa28e26efddb769.png')" />
+                <div class="photo-badge">✨ Momen 1</div>
+              </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="photo-item" id="photoItem2">
+              <div class="photo-frame">
+                <img src="images/foto2.png" alt="Momen Indah 2" class="memory-photo" loading="lazy"
+                  onerror="handleImageFallback(this, 'file_00000000bf60820b88bb3a27f93096e8.png')" />
+                <div class="photo-badge">🌸 Momen 2</div>
+              </div>
+            </div>
+
+            <!-- Foto 3 (Slot foto3.jpg dengan Placeholder Elegan jika belum ada) -->
+            <div class="photo-item" id="photoItem3">
+              <div class="photo-frame photo-slot-3">
+                <img src="foto3.jpg" alt="Foto kita berikutnya" class="memory-photo slot-img" loading="lazy"
+                  onerror="showPhoto3Placeholder(this)" />
+                <!-- Elegant Placeholder jika foto3.jpg belum ada -->
+                <div class="photo-placeholder" id="photo3Placeholder">
+                  <div class="placeholder-icon-wrap">
+                    <span class="placeholder-icon">📸</span>
+                    <span class="placeholder-sparkle">💖</span>
+                  </div>
+                  <p class="placeholder-text">Foto kita berikutnya? ❤️</p>
+                  <span class="placeholder-hint">Slot foto spesial kita nanti</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Text & Action -->
+          <div class="gallery-footer">
+            <p class="romantic-quote">
+              "Semoga ini bukan cuma jadi sebuah website,<br />
+              tapi jadi awal dari cerita kita. ❤️"
+            </p>
+
+            <button class="btn btn-primary btn-lanjut" id="btnLanjut" aria-label="Lanjut ke slide pesan">
+              <span class="btn-text">LANJUT ❤️</span>
+              <span class="btn-glow"></span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 3: KIRIM PESAN ==================== -->
+      <section class="slide-section" id="slide-3" data-slide="3">
+        <div class="slide-content-card glass-panel letter-card">
+
+          <div class="envelope-stamp">
+            <div class="wax-seal">💌</div>
+          </div>
+
+          <h2 class="letter-title">Terima kasih sudah sampai di sini ❤️</h2>
+
+          <div class="letter-body">
+            <p class="letter-text">
+              Kalau kamu sudah punya jawabannya,<br />
+              aku pengen dengar langsung dari kamu. 😊
+            </p>
+          </div>
+
+          <!-- Message Preview Box -->
+          <div class="message-preview-box">
+            <div class="preview-header">
+              <span class="wa-dot"></span>
+              <span class="preview-title">Draft Pesan WhatsApp:</span>
+            </div>
+            <div class="preview-content">
+              <p><em>Assalamu'alaikum ❤️</em></p>
+              <p><em>Aku sudah lihat website-nya...</em></p>
+              <p><strong><em>Jawabanku: [MAU / NGGAK]</em></strong></p>
+              <p><em>😊</em></p>
+            </div>
+          </div>
+
+          <!-- WhatsApp CTA Button -->
+          <div class="action-group">
+            <button class="btn btn-whatsapp" id="btnWhatsapp" aria-label="Kirim Pesan ke WhatsApp">
+              <span class="wa-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path
+                    d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.2 1.053.94 1.939 1.232 2.215 1.369.173.087.275.072.376-.043.101-.116.433-.505.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z" />
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.178L2 22l4.981-1.309C8.423 21.499 10.15 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.687 0-3.262-.516-4.577-1.397l-.328-.219-2.977.782.795-2.906-.237-.378C3.766 14.73 3.2 13.415 3.2 12c0-4.852 3.948-8.8 8.8-8.8 4.852 0 8.8 3.948 8.8 8.8 0 4.852-3.948 8.8-8.8 8.8z" />
+                </svg>
+              </span>
+              <span class="btn-text">💌 KIRIM PESAN KE AKU</span>
+              <span class="btn-glow"></span>
+            </button>
+
+            <button class="btn-back" id="btnBack" aria-label="Kembali ke slide sebelumnya">
+              ← Kembali
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Photo Lightbox Modal (Zoom preview when clicking photos) -->
+  <div id="lightboxModal" class="lightbox-modal hidden">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Tutup foto">&times;</button>
+      <img id="lightboxImage" src="" alt="Momen Spesial" />
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
